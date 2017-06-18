@@ -1,0 +1,55 @@
+<html>
+	<head>
+	<title>RPS GAME</title>
+	</head>
+
+		<script type="text/javascript">
+
+
+		var tools = ['rock','paper','scissors'];
+		var player1 = 0;
+		var player2 = 0;
+		var rounds = 0;
+		var winsrequired = 3; 
+		// var winsrequired = prompt('how many games would you like to be played?');
+
+		// 	//LOOP: 
+			while(player1 < winsrequired && player2 < winsrequired){
+				//random sample: 
+				var player1tool = tools[parseInt(Math.random()*tools.length) %3];
+				var player2tool = tools[parseInt(Math.random()*tools.length) %3];
+				rounds++;
+
+					//DRAW CASE
+					if(player1tool==player2tool){
+						console.log("draw"); continue;
+					}
+
+					//PLAYER1 WINS 
+					if(
+						(player1tool == 'rock' && player2tool == 'scissors') ||
+						(player1tool == 'scissors' && player2tool == 'paper') ||
+						(player1tool == 'paper' && player2tool == 'rock')
+					){
+						
+						console.log('player1 wins: ' + player1tool + ' beats ' + player2tool); 
+						player1++;
+
+					}else{
+
+					//PLAYER2WINS
+						console.log('player2 wins: ' + player1tool + ' lost to ' + player2tool);
+						player2++;
+					}
+
+		}
+
+					//RESULTS
+					if(player1 == winsrequired){
+						console.log("player1 wins match in "+rounds+" Rounds");
+					}else{
+						console.log("player2 wins match in "+rounds+" Rounds");
+					}
+
+		</script>
+</html>
